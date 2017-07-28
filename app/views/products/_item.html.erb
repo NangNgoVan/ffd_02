@@ -2,11 +2,18 @@
   <a href="<%= product_path product %>">
     <%= image_tag "" %>
   </a>
-  <div class="desc"><%= product.name %><br><%= product.price %> VND </div>
+  <div class="desc">
+  <p>
+    <%= product.name %>
+  </p>
+  <p>
+    <%= product.price %>
+  </p>
+   VND</div>
   <div class="buttons-item">
     <button class="btn btn-primary"><%= t "themgiohang" %></button>
-    <button class="btn btn-primary"
-      data-toggle="modal" data-target="#item-order">
+    <button class="btn btn-primary btn-order"
+      data-product='<%= product.to_json %>'>
       <%= t "dathang" %>
     </button>
   </div>

@@ -52,7 +52,7 @@
           <h2><%= t "monan_noibat" %></h2>
           <div class="item-gallery">
             <% @products.each do |product| %>
-              <%= render "elements/item", product: product %>
+              <%= render "products/item", product: product %>
             <% end %>
           </div>
         </div>
@@ -61,12 +61,13 @@
           <h2><%= t "monmoi" %></h2>
           <div class="item-gallery">
             <% @products.each do |product| %>
-              <%= render "elements/item", product: product %>
+              <%= render "products/item", product: product %>
             <% end %>
           </div>
         </div>
       </div>
     </div>
+    <%= render "orders/order_modal" %>
   </div>
   <%= render "layouts/footer" %>
 <% end %>
