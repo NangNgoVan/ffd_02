@@ -1,0 +1,76 @@
+<div class="modal fade" id="order-modal" tabindex="-1" role="dialog" aria-labelledby="product-label-modal" aria-hidden="true">
+  <div class="modal-dialog">
+    <%= form_for current_user.orders.build do |f| %>
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span>
+            <span class="sr-only"><%= t"dong" %></span>
+          </button>
+          <h3 class="modal-title" id="product-label-modal"></h3>
+        </div>
+        <div class="modal-body">
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>
+                  <%= image_tag "http://lorempixel.com/140/140/",
+                    class: "item-picture-modal", id: "item-picture-modal" %>
+                </td>
+                <td>
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <td><%= t "soluong" %></td>
+                        <td id="quantity">
+                          <div class="input-group" style="width: 100px;">
+                            <span class="input-group-btn">
+                              <button type="button"
+                                class="btn btn-danger btn-number"
+                                disabled="disabled" data-type="minus"
+                                data-field="quant[1]" id="minus"
+                                onclick="$(this).clickCounter()">
+                                <span class="glyphicon glyphicon-minus"></span>
+                              </button>
+                            </span>
+                            <input type="text" name="quant[1]"
+                              class="form-control input-number"
+                              value="1" min="1" max="10"
+                              id="quantity-number"
+                              onchange="$(this).changeValue()">
+                            <span class="input-group-btn">
+                              <button type="button"
+                                class="btn btn-success btn-number"
+                                data-type="plus" data-field="quant[1]"
+                                id="plus" onclick="$(this).clickCounter()">
+                                <span class="glyphicon glyphicon-plus"></span>
+                              </button>
+                            </span>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td><%= t "giasanpham" %></td>
+                        <td id="product-price-modal"></td>
+                      </tr>
+                      <tr>
+                        <td><%= t "tong" %></td>
+                        <td id="sum">0</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div>
+            <%= hidden_field_tag :product_id, "", id: "product-id-modal" %>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit t("dongy"), class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,8 +1,8 @@
 class ProductsController < ApplicationController
   def show
-    @product = Product.find_by id: params[:id]
+    @product = product = Product.find_by id: params[:id]
 
-    return if @product
+    return if product
     flash[:info] = t "khongtimthay"
     redirect_to root_path
   end
