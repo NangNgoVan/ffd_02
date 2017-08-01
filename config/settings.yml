@@ -1,0 +1,4 @@
+comment:
+  max_length: 140
+page:
+  per_page: 10

@@ -1,0 +1,23 @@
+<div class="media" id="comment-<%= comment.id %>">
+  <div class="media-left">
+    <%= link_to image_tag("http://lorempixel.com/60/60/",
+      class: "media-object pull-left") %>
+  </div>
+  <div class="media-body">
+    <div class="media">
+      <div class="media-body">
+        <h6 class="media-heading">
+          <%= comment.user_email %> *
+          lúc <%= comment.created_at %>
+          <% if current_user.author? comment %>
+          <%= link_to t("xoa"), comment,
+            method: :delete,
+            remote: true,
+            data: {confirm: t("bancochackhong")} %>
+          <% end %>
+        </h6>
+        <p><%= comment.content %></p>
+      </div>
+    </div>
+  </div>
+</div>

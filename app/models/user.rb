@@ -4,8 +4,12 @@ class User < ApplicationRecord
     :confirmable
 
   has_many :payments
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :products
   has_many :orders
   has_many :ratings
+
+  def author? comment
+    self == comment.user
+  end
 end
