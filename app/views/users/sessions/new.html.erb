@@ -1,0 +1,78 @@
+<%= render "layouts/header" %>
+<br><br><br><br>
+<div class="container">
+  <div class="omb-login">
+    <h3><%= t "login_or" %>
+      <%- if devise_mapping.registerable? &&
+          controller_name != "registrations" %>
+        <%= link_to "Sign up", new_registration_path(resource_name) %><br/>
+      <% end -%>
+    </h3>
+    <div class="row omb-row-sm-offset-3 omb-socialbuttons">
+      <div class="col-xs-4 col-sm-2">
+        <a href="#" class="btn btn-lg btn-block omb-btn-facebook">
+          <i class="fa fa-facebook visible-xs"></i>
+          <span class="hidden-xs"><%= t "fb" %></span>
+        </a>
+      </div>
+      <div class="col-xs-4 col-sm-2">
+        <a href="#" class="btn btn-lg btn-block omb-btn-twitter">
+          <i class="fa fa-twitter visible-xs"></i>
+          <span class="hidden-xs"><%= t "tw" %></span>
+        </a>
+      </div>
+      <div class="col-xs-4 col-sm-2">
+        <a href="#" class="btn btn-lg btn-block omb-btn-google">
+          <i class="fa fa-google-plus visible-xs"></i>
+          <span class="hidden-xs"><%= t "gg" %></span>
+        </a>
+      </div>
+    </div>
+    <div class="row omb-row-sm-offset-3 omb-loginor">
+      <div class="col-xs-12 col-sm-6">
+        <hr class="omb-hror">
+        <span class="omb-spanor"><%= t "or" %></span>
+      </div>
+    </div>
+    <div class="row omb-row-sm-offset-3">
+      <div class="col-xs-12 col-sm-6">
+        <%= form_for(resource, as: resource_name,
+          url: session_path(resource_name), class: "omb-loginForm") do |f| %>
+          <%= render "shared/error_messages", object: resource %>
+          <div class="field">
+            <%= f.label :email %>
+            <%= f.email_field :email, autofocus: true, class: "form-control" %>
+          </div>
+          <div class="field">
+            <%= f.label :password %><br />
+            <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          </div>
+          <span class="help-block"></span>
+          <div class="actions">
+            <%= f.submit "Log in", class: "btn btn-lg btn-primary btn-block" %>
+          </div>
+      </div>
+    </div>
+    <div class="row omb-row-sm-offset-3">
+      <div class="col-xs-12 col-sm-3">
+        <% if devise_mapping.rememberable? -%>
+          <div class="field">
+            <%= f.check_box :remember_me %>
+            <%= f.label :remember_me %>
+          </div>
+        <% end -%>
+      </div>
+      <div class="col-xs-12 col-sm-3">
+        <p class="omb-forgotpwd">
+          <%- if devise_mapping.recoverable? &&
+            controller_name != "passwords" &&
+            controller_name != "registrations" %>
+            <%= link_to t("forgot_password"),
+              new_password_path(resource_name), class: "omb-forgotpwd" %><br />
+          <% end -%>
+        </p>
+      <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,77 @@
+$red: #f00;
+$white: #fff;
+$aa: #aaa;
+$cd: #cdcdcd;
+$blue: #3b5998;
+$bluee: #00aced;
+$red: #c32f10;
+
+.omb-login .omb-authtitle {
+  line-height: 300%;
+  text-align: center;
+}
+
+.omb-login .omb-socialbuttons a {
+  color: $white;
+  opacity: .9;
+}
+
+.omb-login .omb-socialbuttons a:hover {
+  color: $white;
+  opacity: 1;
+}
+
+.omb-login .omb-socialbuttons .omb-btn-facebook {background: $blue;}
+.omb-login .omb-socialbuttons .omb-btn-twitter {background: $bluee;}
+.omb-login .omb-socialbuttons .omb-btn-google {background: $red;}
+.omb-login .omb-loginor {
+  color: $aa;
+  font-size: 1.5em;
+  margin-bottom: 1em;
+  margin-top: 1em;
+  padding-bottom: .5em;
+  padding-top: .5em;
+  position: relative;
+}
+
+.omb-hror {
+  background-color: $cd;
+  height: 1px;
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.omb-spanor {
+  background-color: $white;
+  display: block;
+  left: 50%;
+  margin-left: -1.5em;
+  position: absolute;
+  text-align: center;
+  top: -.6em;
+  width: 3em;
+}
+
+.omb-login .omb-loginform .input-group.i {
+  width: 2em;
+}
+
+.omb-login .omb-loginform  .help-block {
+  color: $red;
+}
+
+@media (min-width: 768px) {
+  .omb-login .omb-forgotpwd {
+    margin-top: 10px;
+    text-align: right;
+  }
+}
+
+.error-explanation {
+  color: $red;
+
+  ul {
+    color: $red;
+    margin: 0 0 30px;
+  }
+}
