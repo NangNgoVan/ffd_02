@@ -48,6 +48,21 @@
     }
   };
 
+  $.fn.showDetailOrder = function() {
+    var orderID = JSON.parse($(this).attr('data-order'));
+    $.ajax({
+      type: 'get',
+      url: '/orders/'+orderID+'.js',
+      dataType: 'html'
+    })
+    .done(function(data) {
+      $('#detail-order').find(".modal-body").html(data);
+      $('#detail-order').modal();
+      console.log(data);
+    })
+    .fail(function(){alert(I18n.t('loi'))});
+  };
+
 }(jQuery))
 
 $(function() {
@@ -61,18 +76,4 @@ $(function() {
     $('#order-modal').modal('show');
   });
 
-  $('.btn-detail-order').click(function() {
-    var orderID = JSON.parse($(this).attr('data-order'));
-    $.ajax({
-      type: 'get',
-      url: '/orders/'+orderID+'.js',
-      dataType: 'html'
-    })
-    .done(function(data) {
-      $('#detail-order').find(".modal-body").html(data);
-      $('#detail-order').modal();
-      console.log(data);
-    })
-    .fail(function(){alert(I18n.t('loi'))});
-  });
 });

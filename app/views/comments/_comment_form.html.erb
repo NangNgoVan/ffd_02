@@ -1,0 +1,25 @@
+<div class="col-md-12 well">
+  <div class="comment-list">
+    <% comments = product.comments %>
+    <h3 class="comment-count">
+      <%= t "binhluan" %>(<%= comments.count %>)
+    </h3>
+    <% comments.each do |comment| %>
+      <%= render "comments/item", comment: comment %>
+    <% end %>
+  </div>
+  <div class="comment-area">
+    <%= form_for current_user.comments.build, remote: true,
+      url: comments_path do |f| %>
+      <div class="form-group">
+        <%= f.hidden_field :product_id, value: product.id %>
+        <%= f.label :content %>
+        <%= f.text_area :content, class: "form-control content-area", rows: 5,
+          placeholder: t("nhapbinhluan") %>
+      </div>
+      <div class="form-group">
+        <%= f.submit t("dangbinhluan"), class: "btn btn-primary" %>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,3 @@
+$('div').remove('#comment-<%= @comment.id %>');
+$('.comment-count')
+  .html('<%= t "binhluan" %>(<%= @comment.product.comment_counter %>)');
