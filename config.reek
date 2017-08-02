@@ -11,3 +11,5 @@ UncommunicativeModuleName:
   enabled: false
 UncommunicativeVariableName:
   enabled: false
+InstanceVariableAssumption:
+  enabled: false
