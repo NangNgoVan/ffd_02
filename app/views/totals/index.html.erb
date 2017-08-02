@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <table class="table">
+      <thead>
+        <tr>
+          <th><%= t "mahoadon" %></th>
+          <th><%= t "ngaytao" %></th>
+          <th><%= t "tongtien" %></th>
+          <th><%= t "trangthai" %></th>
+          <th><%= t "ngaythanhtoan" %></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <td><%= order.id %></td>
+              <td>
+                <%= order.created_at.strftime("%B %d, %Y %H:%M") %>
+              </td>
+              <td><%= order.total %></td>
+              <td>
+                  <% if order.checked? %>
+                    <%= t "daxacnhan" %>
+                  <% else %>
+                    <%= t "dangcho" %>
+                  <% end %>
+              </td>
+              <td>#</td>
+            <td>
+              <button class="btn btn-primary btn-sm btn-detail-order"
+                data-order="<%= order.id %>">Xem chi tiết
+              </button>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @orders %>
+  </div>
+  <%= render "orders/detail_modal" %>
+</div>

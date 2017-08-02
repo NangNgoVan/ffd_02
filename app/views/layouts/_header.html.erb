@@ -11,7 +11,8 @@
             <%= link_to t("giohang"), "#", class: "color_animation" %>
           </li>
           <li>
-            <%= link_to t("donhang"), "#", class: "color_animation" %>
+            <%= link_to t("donhang"), orders_user_path(current_user),
+              class: "color_animation" %>
           </li>
           <li>
             <%= link_to t("dangxuat"), destroy_user_session_path,

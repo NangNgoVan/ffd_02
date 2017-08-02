@@ -1,0 +1,32 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th><%= t "giasanpham" %></th>
+      <th><%= t "hinhanh" %></th>
+      <th><%= t "soluong" %></th>
+      <th><%= t "gia/sp" %></th>
+      <th><%= t "tong" %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% sum = 0 %>
+    <% @products.each do |p| %>
+      <% p_item = p.unitprice*p.quantity %>
+      <% sum += p_item %>
+      <tr>
+        <td><%= p.product.name %></td>
+        <td><img src="<%= p.product.image %>"/></td>
+        <td><%= p.quantity %></td>
+        <td><%= p.unitprice %></td>
+        <td><%= p_item %></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><b><%= sum %></b></td>
+    </tr>
+  </tbody>
+</table>

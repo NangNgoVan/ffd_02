@@ -1,0 +1,4 @@
+<% @products.each do |product| %>
+  <%= render "products/item", product: product %>
+<% end %>
+<%= render "orders/order_modal" %>
